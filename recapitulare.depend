@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1789657761 source:c:\mycode\recapitulare\main.cpp
+	"while-ex.h"
+
+1789657803 c:\mycode\recapitulare\while-ex.h
+	<iostream>
+
