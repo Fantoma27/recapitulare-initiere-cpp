@@ -1,7 +1,7 @@
 #ifndef WHILE-EX_H_INCLUDED
 #define WHILE-EX_H_INCLUDED
 #include <iostream>
-
+#include <math.h>
 using namespace std;
 
 
@@ -116,10 +116,12 @@ int elimK(int n, int k)
 
 // TEMA
 
-//EX 1: ??
+//EX 1: intoarce cel mai mare numar care se poate forma rearanjand cifrele lui n
 
 
 // VARIANTA 1 - ?  7873
+
+
 
 int celMaiMareNumar(int n)
 {
@@ -148,7 +150,7 @@ int celMaiMareNumar1(int n)
     int nou = 0;
     int aux;
 
-    
+
     while(n > 0){
         int uc = n % 10;
         if(uc > (nou / p) % p){
@@ -195,7 +197,7 @@ int celMaiMicNumar(int n)
     int nou = 0;
     int aux;
 
-    
+
     while(n > 0){
         int uc = n % 10;
         if(uc < (nou / p) % p){
@@ -220,9 +222,9 @@ bool auAceleasiCifre(int a, int b)
     {
         int uc = a % 10;
         if(uc == )
-        
+
     }
-    
+
 }
 */
 // EX 4: (TERMINAT)
@@ -403,6 +405,158 @@ int celMaiMicNrCuSumaCifrelor(int s)
 
     }
     return a;
+}
+
+int numarDeCifre(int n)
+{
+    int ct = 0;
+    while(n > 0)
+    {
+        n = n / 10;
+        ct++;
+    }
+    return ct;
+}
+
+// 1234  =>4 cifre   cifra maxima  eliminare cifra
+//  4 123 3 12
+// cifraMaxima eliminareCifra
+
+int cifraMaxima(int n)
+{
+    int maxx = -1;
+    int uc = n % 10;
+    n = n / 10;
+    while(n > 0)
+    {
+        if(uc > maxx)
+        {
+            maxx = uc;
+        }
+        uc = n % 10;
+        n = n / 10;
+    }
+    return maxx;
+}
+
+// cifra  nou   p     n  1234
+//    4    4    10    123
+//    3    34   100   12
+//    2    234  1000  1
+//    1    1234 10000 0
+
+int eliminareCifra(int numar,int cifraEliminata)
+{
+    int p=1;
+    int nou=0;
+    while(numar!=0){
+        int cifra=numar%10;
+        if(cifra != cifraEliminata)
+        {
+            nou=cifra*p+nou;
+            p*=10;
+        }
+        numar/=10;
+    }
+
+    return nou;
+}
+
+//1234 4=> 4*1000  4000  123  3*!00   4300
+
+int celMaiMareNumarCORECT(int n)
+{
+       int nou=0;
+       int ctCif=numarDeCifre(n);//4
+        ctCif--;//3
+        while(ctCif>=0){
+           int cifraM=cifraMaxima(n); //4 3  2
+           n=eliminareCifra(n,cifraM);//123 12 1
+           nou=cifraM*pow(10,ctCif)+nou;//4000 4300 4320
+           ctCif--;//2  1 0
+
+        }
+    return nou;
+
+}
+
+int cifraMinima(int n)
+{   if(n==0){
+       return 0;
+      }
+    int minn = 100000001;
+    while(n > 0)
+    {
+        int uc = n % 10;
+        if(uc < minn)
+        {
+            minn = uc;
+        }
+        n = n / 10;
+    }
+    return minn;
+}
+// n=1304  ctCifre=3
+
+// ctCif>0  cifraM  n   nou ctCif
+//  da         0   134   0     2
+//  da         1    34   100   1
+//  da         3     4   130   0
+//  da         4    0    134   -1
+
+//functie de inserare cifra pe o anumita pozitie
+//8375  3  2
+
+// n > 0  ct != poz  uc  nou  p      n    else nou     p ct
+//  da      da = 0   5    5   10     837                 1
+//  da      da = 1   7    75  100    83                  2
+//  da      nu = 2                              375 1000 3
+//  da      da = 3   3    3375  10000 8                  4
+//  da      da = 4   8    83375 100000 0                 5
+//  nu
+//  return   =   83375
+int inserareCifre(int n, int cifDeInserat,int poz)
+{
+    int p = 1;
+    int nou = 0;
+    int ct=0;
+    while(n > 0)
+    {
+        if(ct != poz)
+        {   int uc = n % 10;
+            nou = uc * p + nou;
+            p = p * 10;
+            n = n / 10;
+        }else{
+            nou = cifDeInserat * p + nou;
+            p = p * 10;
+        }
+        ct++;
+    }
+    return nou;
+}
+
+int celMaiMicNumarCORECT(int n)
+{
+    int nou = 0;
+    int ctCif = numarDeCifre(n);
+    ctCif--;
+    bool isZero=false;
+
+    while(ctCif >= 0)
+    {
+        int cifraM = cifraMinima(n);
+        n = eliminareCifra(n,cifraM);
+        nou = cifraM*pow(10,ctCif) + nou;
+        if(nou==0){
+            isZero=true;
+        }
+        ctCif--;
+    }
+
+
+    return nou;
+
 }
 
 
