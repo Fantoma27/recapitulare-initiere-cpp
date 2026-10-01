@@ -1,8 +1,11 @@
 # depslib dependency file v1.0
-1790267701 source:c:\mycode\recapitulare\main.cpp
-	"while-ex.h"
+1790269809 source:c:\mycode\recapitulare\main.cpp
+	"parcurgerea-vectoriilor.h"
 
 1790267859 c:\mycode\recapitulare\while-ex.h
 	<iostream>
 	<math.h>
+
+1790269883 c:\mycode\recapitulare\parcurgerea-vectoriilor.h
+	<iostream>
 
