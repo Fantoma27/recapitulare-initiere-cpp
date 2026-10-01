@@ -5,23 +5,6 @@ using namespace std;
 int main()
 {
 
-    //2a
-    int n, v[300];
-    cin >> n;
-    for(int i = 0; i <n; i++)
-    {
-        cin >> v[i];
-    }
-
-    int cifmin= 9;
-    for(int i = 0; i < n; i++)
-    {
-        int aux = CIfraMinima(v[i]);
-        if(aux < cifminn){
-            cifminn = aux;
-        }
-    }
-    cout << cifminn;
-
+   sol1g();
     return 0;
 }
