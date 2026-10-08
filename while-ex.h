@@ -71,15 +71,13 @@ int cifMax(int n){
 //verif. daca n contine x
 bool verifcifre(int n, int x)
 {
-    int aux = n % 10;
-    n = n / 10;
     while(n > 0)
     {
+        int aux = n % 10;
         if(x == aux)
         {
             return true;
         }
-        aux = n % 10;
         n = n / 10;
     }
     return false;
@@ -304,10 +302,20 @@ bool estePerfect(int n)
 //EX 8: TERMINAT
 int cmmdc(int a, int b)
 {
+    if(a == 0 && b == 0)
+    {
+        return 0;
+    }
+    if(a == 0){
+        return b;
+    }
+    if(b == 0){
+        return a;
+    }
     if(a >= b)
     {
         int i = a;
-        while(i <= a)
+        while(i >= 1)
         {
             if(a % i == 0 && b % i == 0)
             {
@@ -319,7 +327,7 @@ int cmmdc(int a, int b)
     if(b >= a)
     {
         int i = b;
-        while(i <= b)
+        while(i >= 1 )
         {
             if(b % i == 0 && a % i == 0)
             {
@@ -343,46 +351,42 @@ int cmmmc(int a, int b)
 //EX 10: TERMINAT
 bool areToateCifrelePrime(int n)
 {
-    int uc = n % 10;
-    n = n / 10;
+
+
     while(n > 0)
     {
-        if(estePrim(uc) == true)
-        {
-            uc = n % 10;
-            n = n / 10;
-        }
-        else
-        {
+        int uc = n % 10;
+        if(estePrim(uc) == false){
             return false;
         }
+        n = n / 10;
+
     }
     return true;
+
 }
 
 //EX 11:
-/*int celMaiMicNrCuSumaCifrelorGresit(int s)
+int celMaiMicNrCuSumaCifrelorGresit(int s)
 {
     int a = 0;
     int i = 9;
-    while(a < s)
-    {
-        if(i <= (s - a))
+    int p = 1;
+    int sumaRamasa = s;
+    while(sumaRamasa > 0){
+        if(i <= sumaRamasa)
         {
-            while(i <= (s - a))
-            {
-                a = a + i;
-            }
+            a = i * p + a;
+            p = p * 10;
+            sumaRamasa = sumaRamasa - i;
         }
-        else
-        {
+        else{
             i--;
         }
-
     }
     return a;
 }
-*/
+
 int celMaiMicNrCuSumaCifrelor(int s)
 {
     int a = 0;
@@ -425,15 +429,15 @@ int numarDeCifre(int n)
 int cifraMaxima(int n)
 {
     int maxx = -1;
-    int uc = n % 10;
-    n = n / 10;
+
+
     while(n > 0)
     {
+        int uc = n % 10;
         if(uc > maxx)
         {
             maxx = uc;
         }
-        uc = n % 10;
         n = n / 10;
     }
     return maxx;

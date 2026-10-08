@@ -7,7 +7,7 @@ using namespace std;
 
 //functie ce afiseaza eleemntele unui vector de numere intregi
 
-int afisareaElemVect(int v[],int dim)
+void afisareaElemVect(int v[],int dim)
 {
     int n;
     for(int i = 0; i <dim; i++)
@@ -28,7 +28,7 @@ int afisareaElemVect(int v[],int dim)
 
 } */
 
-//todo:cate nr prime avem in vector
+//cate nr prime avem in vector
 
 
 
@@ -52,9 +52,9 @@ bool isPrim(int n)
 int contorPrimeVector(int v[], int dim)
 {
     int ct = 0;
-    for(int i = 0; i <= dim; i++)
+    for(int i = 0; i < dim; i++)
     {
-        if(isPrim(i) == true)
+        if(isPrim(v[i]) == true)
         {
             ct++;
         }
@@ -63,7 +63,7 @@ int contorPrimeVector(int v[], int dim)
 
 }
 
-void soll2(){
+void sol2(){
     int v[100] = {23, 5, 4, 3, 7};
 
     int dim = 5;
@@ -227,36 +227,29 @@ int numerePrimeCuPozitia(int v[], int n)
     return ct;
 }
 
-/*int sol2d()
-{
-    int v[300] =
-}*/
 
-/*int punctul_c(int v[], int n)
+
+bool ePalindrom(int n)
 {
-    int i, j, x, nr = 0, nou = 0;
-    int c[10];
-    for(i = 1; i <= n; i++)
+    if(n == rasturnat(n))
     {
-        nr = 0;
-        for(x = v[i]; x > 0; x = x / 10)
+        return true;
+    }
+    return false;
+}
+void punctul_c(int v[], int n)
+{
+    for(int i = 0; i < n; i++){
+        if(ePalindrom(v[i]) == true)
         {
-            nr++;
-            c[nr] = x % 10;
-        }
-        if(c[1] == c[nr])
-        {
-            r = 0;
-            for(j = 1; j <= nr; j++)
-            {
-                nou = nou * 10 + c[j;]
-            }
-            cout << nou;
+            cout << v[i] << ' ';
         }
     }
-} */
+}
 
-// EX1 / SUb G
+
+
+// EX1 / SUb G REZOLVAT MAI SUS
 /*int punctul_g(int v[], int n)
 {
     int i, j, x, s, nr, p = 1;
@@ -301,7 +294,7 @@ int numerePrimeCuPozitia(int v[], int n)
 
 //EX 2 / sunpunct a.
 
-int CIfraMinima(int n)
+int CifraMinima(int n)
 {
     if(n == 0)
     {
@@ -335,5 +328,7 @@ bool areCifra(int n, int c)
     }
     return false;
 }
+
+
 
 #endif // PARCURGEREA-VECTORIILOR_H_INCLUDED

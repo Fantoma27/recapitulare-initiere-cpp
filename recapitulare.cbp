@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="algoritmi.h" />
 		<Unit filename="fisa2.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

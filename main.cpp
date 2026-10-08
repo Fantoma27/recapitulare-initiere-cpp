@@ -1,10 +1,9 @@
-#include "parcurgerea-vectoriilor.h"
+#include "sortare_selectie.h"
 using namespace std;
-//EX 12: ??
+
 
 int main()
 {
-
-   sol1g();
+    sol44();
     return 0;
 }
