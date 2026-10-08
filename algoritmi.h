@@ -41,6 +41,13 @@ int pozMaxim(int v[], int d)
 
     return poz;
 }
+//      0  1  2   3   4   5   6   7   8   9
+// v = [3, 7, 12, 18, 25, 31, 44, 58, 72, 89]  inf = 0 ;  sup  = 9  , caut 31
+//   inf <= sup  mij   if(v[mij] == key)  if(v[mij] < key)   inf   sup
+//     0<=9 da     4         nu                 nu            5    9
+//     5==5 da     6         da                 da            -    5
+//
+
 
 int cautareBinara(int v[], int d, int key)
 {
@@ -49,7 +56,7 @@ int cautareBinara(int v[], int d, int key)
 
     while (inf <= sup)
     {
-        int mij = inf + (sup - inf) / 2;
+        int mij = (sup + inf) / 2;
         if (v[mij] == key)
         {
             return mij;
@@ -221,7 +228,15 @@ void stergereElement(int v[], int& d, int poz)
     }
     d--;
 }
+//  v[5] = {14, 22, 23, 94, 15}  d = 5,   poz = 3,   elem = 4
+//                        0   1   2   3   4   5
+//   i>poz   v[i]=v[i-1]  14  22  23  94  15  0  i
+//   5>3 da  v[5]=v[4]                        15 4
+//   4>3 da  v[4]=v[3]                    94  15 3
+//   3>3 nu
 
+//  14 22 23 94 94 15
+// v
 void inserareElement(int v[], int& d, int poz, int elem)
 {
     for (int i = d; i > poz; i--)

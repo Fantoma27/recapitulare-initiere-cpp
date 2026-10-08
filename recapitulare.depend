@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-1791471305 source:c:\mycode\recapitulare\main.cpp
-	"sortare_selectie.h"
+1791476167 source:c:\mycode\recapitulare\main.cpp
+	"cautare_binara.h"
 
 1790267859 c:\mycode\recapitulare\while-ex.h
 	<iostream>
@@ -13,10 +13,10 @@
 	"algoritmi.h"
 	<iostream>
 
-1790870940 c:\mycode\recapitulare\algoritmi.h
+1791476167 c:\mycode\recapitulare\algoritmi.h
 	<iostream>
 
-1791464630 c:\mycode\recapitulare\cautare_binara.h
+1791476200 c:\mycode\recapitulare\cautare_binara.h
 	"algoritmi.h"
 	<iostream>
 

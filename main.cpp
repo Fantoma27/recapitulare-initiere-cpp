@@ -1,9 +1,9 @@
-#include "sortare_selectie.h"
+#include "cautare_binara.h"
 using namespace std;
 
 
 int main()
 {
-    sol44();
+    sol23();
     return 0;
 }
