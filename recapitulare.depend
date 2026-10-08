@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1791476167 source:c:\mycode\recapitulare\main.cpp
+1791477748 source:c:\mycode\recapitulare\main.cpp
 	"cautare_binara.h"
 
 1790267859 c:\mycode\recapitulare\while-ex.h
@@ -16,7 +16,7 @@
 1791476167 c:\mycode\recapitulare\algoritmi.h
 	<iostream>
 
-1791476200 c:\mycode\recapitulare\cautare_binara.h
+1791478358 c:\mycode\recapitulare\cautare_binara.h
 	"algoritmi.h"
 	<iostream>
 

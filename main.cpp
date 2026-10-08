@@ -4,6 +4,6 @@ using namespace std;
 
 int main()
 {
-    sol23();
+    sol24();
     return 0;
 }

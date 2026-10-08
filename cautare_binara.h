@@ -126,17 +126,85 @@ void sol23()
 }
 
 //2.4  Primești un vector ordonat crescător și o valoare x. Scrie o funcție care întoarce cea mai mică valoare din vector mai mare sau egală cu x, sau -1 dacă nu există.
-int ceaMaiMicaValoare(int v[], dim, key)
-{
-    cautareBinara(v, dim, key);
-    for(int i = 0; i < dim; i++)
-    {
-        if(v[i] > )
-    }
 
+//     0  1  2   3   4   5   6   7   8   9        x=40
+//v = [3, 7, 12, 18, 25, 31, 44, 58, 72, 89]
+//  v[100] = {2, 5, 9, 14};   key = 7
+// minim < maxim  mij   if(v[mij] > key)  poz   minim  maxim  if(poz < dim)
+//       da        1            da         1      2
+//
+
+int ceaMaiMicaValoare(int v[],int dim, int key)
+{
+    int maxim= dim - 1;
+    int minim = 0;
+    int poz = dim;
+    while(minim < maxim)
+    {
+        int mij = (minim + maxim) / 2;
+        if(v[mij] > key)
+        {
+            poz = mij;
+            maxim = mij - 1;
+        }
+        else
+        {
+            minim = mij + 1;
+        }
+    }
+    if(poz < dim)
+    {
+        return v[poz];
+    }
+    return -1;
+}
+void sol24()
+{
+    int v[100] = {2, 5, 9, 14};
+    int dim = 4;
+    int key =7;
+    cout << ceaMaiMicaValoare(v, dim, key);
 }
 
+//2.5 Primești un vector ordonat crescător și două valori a și b. Scrie o funcție care întoarce câte elemente sunt între a și b, inclusiv. Fără să parcurgi tot vectorul.
+int cautarePrimaPoz(int v[], int dim , int x)
+{
+    int minim = 0;
+    int maxim = dim - 1;
+    int poz = dim;
+    while(minim <= maxim)
+    {
+        int mij = (minim+maxim) / 2;
+        if(v[mij] >= x)
+        {
+            poz = mij;
+            maxim = mij - 1;
+        }
+        else
+        {
+            minim = mij + 1;
+        }
+    }
+    return poz;
+}
+int cautarePoz(int v[], int dim, int x)
+{
+    int minim = 0;
+    int maxim = dim - 1;
+    int poz = dim;
+    while(minim <= maxim)
+    {
 
+    }
+}
+
+void sol25()
+{
+    int v = {2, 5, 9, 14, 20};
+    int a = 5;
+    int b = 14;
+    parcurgereInVector(v, a, b);
+}
 
 
 
