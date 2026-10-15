@@ -134,4 +134,6 @@ void sortareTreiParti(int v[], int n)
     sortareInterval(v, n / 3, 2 * (n / 3) - 1);
     sortareInterval(v, 2*(n / 3), n - 1);
 }
+
+
 #endif // SORTARE-INTERVAL_H_INCLUDED

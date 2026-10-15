@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-1792074758 source:c:\mycode\recapitulare\main.cpp
-	"sortare-interval.h"
+1792083776 source:c:\mycode\recapitulare\main.cpp
+	"stergere.h"
 
 1790267859 c:\mycode\recapitulare\while-ex.h
 	<iostream>
@@ -28,6 +28,9 @@
 	"algoritmi.h"
 	<iostream>
 
-1792075694 c:\mycode\recapitulare\sortare-interval.h
+1792078655 c:\mycode\recapitulare\sortare-interval.h
+	<iostream>
+
+1792084419 c:\mycode\recapitulare\stergere.h
 	<iostream>
 

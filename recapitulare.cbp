@@ -39,15 +39,27 @@
 		<Unit filename="fisa2.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="interclasare.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="minim_maxim.h" />
+		<Unit filename="munte_vale.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="parcurgerea-vectoriilor.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="sortare-interval.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="sortare_bule.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="sortare_selectie.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="stergere.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="while-ex.h">

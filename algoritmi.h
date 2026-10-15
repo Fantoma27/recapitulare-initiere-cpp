@@ -165,9 +165,9 @@ void sortareIntervalDescrescator(int v[], int start, int finish)
         for (int i = start; i < finish; i++)
         {
             if (v[i] < v[i + 1])
-            {
+            { int aux = v[i];
                 v[i + 1] = aux;
-                int aux = v[i];
+
                 v[i] = v[i + 1];
                 sortat = false;
             }
@@ -363,6 +363,41 @@ int sumaMaximaSecventa(int v[], int d, int& start, int& lungime)
 
     return sumaMax;
 }
+
+//1116568999
+//               0 1 2 3 4 5 6 7 8 9
+ //n!=0   cifra  0 0 0 0 0 0 0 0 0 0   n
+ // da      9                      1   111656899
+ // da      9                      2   11165689
+ // da      9                      3   1116568
+ // da      8                    1 3   111656
+ // da      6                1         11165
+ // da      5              1           1116
+ // da      6                2         111
+ // da      1    1                     11
+ // da      1    2                     1
+ // da      1    3                     0
+ // nu
+
+
+
+void frecventaCifraNumar(int n){
+            //0 1 2 3 4 5 6 7 8 9
+int f[10]{};//0 3 0 0 0 1 2 0 1 3
+
+ while(n!=0){
+    int cifra=n%10;
+    f[cifra]++;
+    n=n/10;
+ }
+
+ for(int i=0;i<10;i++){
+    cout<<i<<"apare de "<<f[i]<<" ori"<<endl;
+ }
+}
+
+
+
 
 void frecventaValori(int v[], int d, int f[], int valoareMax)
 {
