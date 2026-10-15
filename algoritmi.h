@@ -134,6 +134,9 @@ void sortareSelectie(int v[], int d)
     }
 }
 
+//  v = 9, 7, 5, 3, 1, 2
+//
+
 void sortareInterval(int v[], int start, int finish)
 {
     bool sortat = false;
@@ -163,9 +166,9 @@ void sortareIntervalDescrescator(int v[], int start, int finish)
         {
             if (v[i] < v[i + 1])
             {
+                v[i + 1] = aux;
                 int aux = v[i];
                 v[i] = v[i + 1];
-                v[i + 1] = aux;
                 sortat = false;
             }
         }

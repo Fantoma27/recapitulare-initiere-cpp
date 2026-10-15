@@ -1,9 +1,9 @@
-#include "cautare_binara.h"
+#include "sortare-interval.h"
 using namespace std;
 
 
 int main()
 {
-    sol24();
+    solPeInterval();
     return 0;
 }
