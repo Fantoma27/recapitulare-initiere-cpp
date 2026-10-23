@@ -38,12 +38,8 @@ void stergereElement(int v[], int& d, int poz)
 //  0<10       da          0<9      v[0]= 10      8
 //  1<9        da
 
-void sol1()
+void stergereValoare(int v[], int& d, int val)
 {
-    int v[100] = {10, 10, 10, 15, 18, 10, 92, 14, 24, 84};
-    int d = 10;
-    int val = 10;
-
     for(int i = 0; i < d; i++)
     {
         if(v[i]==val){
@@ -51,6 +47,15 @@ void sol1()
             i--;
         }
     }
+}
+
+void sol1()
+{
+    int v[100] = {10, 10, 10, 15, 18, 10, 92, 14, 24, 84};
+    int d = 10;
+    int val = 10;
+
+    stergereValoare(v, d, val);
 
     afisare(v ,d);
 }
@@ -63,6 +68,7 @@ void stergerePare(int v[], int& d)
         if(v[i] % 2 == 0)
         {
             stergereElement(v, d, i);
+            i--;
         }
     }
 }
@@ -79,21 +85,17 @@ void sol2()
 }
 
 //Scrie o funcție care șterge valorile care se repetă, păstrând doar prima apariție a fiecăreia.
-
-void sortareCrescatoare(int v[], int dim)
+// iau fiecare elem cu i si caut cu j dupa el daca mai apare ca sa il sterg
+void stergereRepetate(int v[], int& d)
 {
-    bool sortat = false;
-    while(sortat == false)
+    for(int i = 0; i < d; i++)
     {
-        sortat = true;
-        for(int i = 0; i < dim - 1; i++)
+        for(int j = i + 1; j < d; j++)
         {
-            if(v[i] > v[i+1])
+            if(v[i] == v[j])
             {
-                int aux = v[i];
-                v[i] = v[i+1];
-                v[i + 1] = aux;
-                sortat = false;
+                stergereElement(v, d, j);
+                j--;
             }
         }
     }
@@ -103,22 +105,14 @@ void sol3()
 {
     int v[100] = {10, 12, 10, 15, 15, 10, 92, 14, 83, 84};
     int d = 10;
-    sortareCrescatoare(v, d);
-    for(int i = 0; i < d; i++)
-    {
-        if(v[i] == v[i + 1])
-        {
-            stergereElement(v, d, i);
-            i--;
-        }
-    }
+    stergereRepetate(v, d);
     afisare(v, d);
 }
 
 //Scrie o funcție care șterge elementele mai mici decât media aritmetică a vectorului.
 double mediaAritmetica(int v[], int d)
 {
-    int s = 0;
+    double s = 0;
     for(int i = 0; i < d; i++)
     {
         s = v[i] + s;
@@ -126,11 +120,9 @@ double mediaAritmetica(int v[], int d)
     return s / d;
 }
 
-void sol4()
+void stergereSubMedie(int v[], int& d)
 {
-    int v[100] = {64, 4, 59, 52, 36, 34, 14, 34, 44, 100, 20};
-    int d = 10;
-    int ma = mediaAritmetica(v, d);
+    double ma = mediaAritmetica(v, d);
     for(int i = 0; i < d; i++)
     {
         if(v[i] < ma)
@@ -139,6 +131,13 @@ void sol4()
             i--;
         }
     }
+}
+
+void sol4()
+{
+    int v[100] = {64, 4, 59, 52, 36, 34, 14, 34, 44, 100};
+    int d = 10;
+    stergereSubMedie(v, d);
     afisare(v, d);
 }
 
@@ -169,7 +168,7 @@ void stergereAparitiiElementVector(int v[],int &d,int f[])
 }
 void sol5()
 {
-    int v[100] = {11, 23, 43, 35, 17, 32, 5, 22, 5, 5, 9};
+    int v[100] = {11, 23, 11, 35, 17, 32, 5, 22, 5, 5, 9};
     int d = 11;
     int f[100] ={};
     frecventaVector(v, d, f);
@@ -178,9 +177,6 @@ void sol5()
         cout << v[i] << ' ';
     }
 }
-
-
-
 
 
 #endif // STERGERE_H_INCLUDED

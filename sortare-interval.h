@@ -1,5 +1,5 @@
-#ifndef SORTARE-INTERVAL_H_INCLUDED
-#define SORTARE-INTERVAL_H_INCLUDED
+#ifndef SORTARE_INTERVAL_H_INCLUDED
+#define SORTARE_INTERVAL_H_INCLUDED
 
 #include <iostream>
 
@@ -40,12 +40,12 @@ using namespace std;
 void sortareInterval(int v[], int start, int finish)
 {
     bool sortat = false;
-    while (sortat == false)
+    while(sortat != true)
     {
         sortat = true;
-        for (int i = start; i < finish; i++)
+        for(int i = start; i <= finish - 1; i++)
         {
-            if (v[i] > v[i + 1])
+            if(v[i] > v[i + 1])
             {
                 int aux = v[i];
                 v[i] = v[i + 1];
@@ -56,20 +56,25 @@ void sortareInterval(int v[], int start, int finish)
     }
 }
 
+// interschimbare descrescator pt 3 si 5:
+// v[i] = 3, v[i+1] = 5
+// if(3 < 5) -> da
+// aux = v[i] (aux ia 3)
+// v[i] = v[i+1] (v[i] ia 5)
+// v[i+1] = aux (v[i+1] ia 3)
 void sortareIntervalDescrescator(int v[], int start, int finish)
 {
-    int aux;
     bool sortat = false;
-    while (sortat == false)
+    while(sortat != true)
     {
         sortat = true;
-        for (int i = start; i < finish; i++)
+        for (int i = start; i <= finish - 1; i++)
         {
             if (v[i] < v[i + 1])
             {
-                v[i + 1] = aux;
                 int aux = v[i];
                 v[i] = v[i + 1];
+                v[i + 1] = aux;
                 sortat = false;
             }
         }
@@ -130,10 +135,10 @@ void solPeInterval()
 
 void sortareTreiParti(int v[], int n)
 {
-    sortareInterval(v, 1, n / 3 - 1);
+    sortareInterval(v, 0, n / 3 - 1);
     sortareInterval(v, n / 3, 2 * (n / 3) - 1);
     sortareInterval(v, 2*(n / 3), n - 1);
 }
 
 
-#endif // SORTARE-INTERVAL_H_INCLUDED
+#endif // SORTARE_INTERVAL_H_INCLUDED

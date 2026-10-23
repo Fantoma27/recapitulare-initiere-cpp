@@ -3,6 +3,8 @@
 
 #include <iostream>
 using namespace std;
+
+// interclasare doi vectori ordonati in vectorul c
 void interclasare(int a[], int da, int b[], int db, int c[], int& dc)
 {
     int i = 0;
@@ -39,29 +41,37 @@ void interclasare(int a[], int da, int b[], int db, int c[], int& dc)
     }
 }
 
-void afisare(const char* nume, int v[], int n)
+void afisare(int v[], int n)
 {
     for (int i = 0; i < n; i++)
+    {
         cout << v[i] << " ";
+    }
+    cout << endl;
 }
 void copiaza(int sursa[], int n, int dest[])
 {
     for (int i = 0; i < n; i++)
         dest[i] = sursa[i];
 }
-void sortare(int v[], int n)
+
+// sortare crescatoare pt vectorii copiati
+void sortare(int v[], int dim)
 {
-    // sortare prin insertie
-    for (int i = 1; i < n; i++)
+    bool sortat = false;
+    while(sortat == false)
     {
-        int x = v[i];
-        int j = i - 1;
-        while (j >= 0 && v[j] > x)
+        sortat = true;
+        for(int i = 0; i < dim - 1; i++)
         {
-            v[j + 1] = v[j];
-            j--;
+            if(v[i] > v[i+1])
+            {
+                int aux = v[i];
+                v[i] = v[i+1];
+                v[i + 1] = aux;
+                sortat = false;
+            }
         }
-        v[j + 1] = x;
     }
 }
 
@@ -69,7 +79,7 @@ void sortare(int v[], int n)
 
 void unesteNeordonati(int a[], int da, int b[], int db, int c[], int& dc)
 {
-    int x[MAX], y[MAX];
+    int x[100], y[100];
     copiaza(a, da, x);
     copiaza(b, db, y);
 
@@ -80,14 +90,13 @@ void unesteNeordonati(int a[], int da, int b[], int db, int c[], int& dc)
 }
 void sol2()
 {
-    cout << "--- 7.2 ---\n";
-    int a[] = {7, 1, 9};
-    int b[] = {4, 2};
-    int c[MAX], dc;
+    int a[100] = {7, 1, 9};
+    int b[100] = {4, 2};
+    int c[200], dc;
     unesteNeordonati(a, 3, b, 2, c, dc);
-    afisare("a", a, 3);
-    afisare("b", b, 2);
-    afisare("c", c, dc);
+    afisare(a, 3);
+    afisare(b, 2);
+    afisare(c, dc);
 }
 
 #endif // INTERCLASARE_H_INCLUDED

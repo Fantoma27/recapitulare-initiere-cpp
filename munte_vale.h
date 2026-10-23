@@ -3,6 +3,44 @@
 
 #include <iostream>
 using namespace std;
+
+void sortareInterval(int v[], int start, int finish)
+{
+    bool sortat = false;
+    while (sortat != true)
+    {
+        sortat = true;
+        for (int i = start; i <= finish - 1; i++)
+        {
+            if (v[i] > v[i + 1])
+            {
+                int aux = v[i];
+                v[i] = v[i + 1];
+                v[i + 1] = aux;
+                sortat = false;
+            }
+        }
+    }
+}
+void sortareIntervalDescrescator(int v[], int start, int finish)
+{
+    bool sortat = false;
+    while (sortat != true)
+    {
+        sortat = true;
+        for (int i = start; i <= finish - 1; i++)
+        {
+            if (v[i] < v[i + 1])
+            {
+                int aux = v[i];
+                v[i] = v[i + 1];
+                v[i + 1] = aux;
+                sortat = false;
+            }
+        }
+    }
+}
+
 void sortareMunte(int v[], int d, int varf)
 {
     sortareInterval(v, 0, varf);
@@ -15,6 +53,7 @@ void sortareVale(int v[], int d, int varf)
     sortareInterval(v, varf, d - 1);
 }
 
+// verific daca urca pana la varf si dupa coboara
 void eMunte(int v[],int n)
 {
     if (n < 3)
@@ -84,48 +123,6 @@ void undeVarf(int v[], int n)
         }
     }
     cout << pozMax;
-}
-void sortareInterval(int v[], int start, int finish)
-{
-    bool sortat = false;
-    while (sortat == false)
-    {
-        sortat = true;
-        for (int i = start; i < finish; i++)
-        {
-            if (v[i] > v[i + 1])
-            {
-                int aux = v[i];
-                v[i] = v[i + 1];
-                v[i + 1] = aux;
-                sortat = false;
-            }
-        }
-    }
-}
-void sortareIntervalDescrescator(int v[], int start, int finish)
-{
-    bool sortat = false;
-    while (sortat == false)
-    {
-        sortat = true;
-        for (int i = start; i < finish; i++)
-        {
-            if (v[i] < v[i + 1])
-            {
-                int aux = v[i];
-                v[i] = v[i + 1];
-                v[i + 1] = aux;
-                sortat = false;
-            }
-        }
-    }
-}
-
-void sortareMunte(int v[], int d, int varf)
-{
-    sortareInterval(v, 0, varf);
-    sortareIntervalDescrescator(v, varf, d-1);
 }
 
 void faMunte(int v[], int n, int varf)
