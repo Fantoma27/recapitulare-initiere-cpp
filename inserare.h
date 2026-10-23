@@ -74,16 +74,59 @@ void sol3()
 
 void sol4()
 {
+    int i;
     int v[100] = {5, 8, 3, 2};
     int d = 4;
     int elem = 99;
-    for(int i = 0; i < d; i++)
-    {
+    for(int i = 0; i < d; i++){
         if(v[i] % 2 == 0)
         {
             inserareElement(v, d, i + 1, elem);
         }
     }
+    afisare(v, d);
+}
+
+//Primești doi vectori. Scrie o funcție care construiește un vector cu primul element 
+//din a, primul din b, al doileadin a, al doilea din b, și tot așa. Ce rămâne se pune la fi nal.
+
+void interclasare(int x[], int y[], int dx, int dy, int v[], int &d)
+{
+    int i = 0;
+    int j = 0;
+    d = 0;
+    while(i < dx && j < dy)
+    {
+        v[d] = x[i];
+        i++;
+        d++;
+        v[d] = y[j];
+        j++;
+        d++;
+    }
+    if(i < dx)
+    {
+        v[d] = x[i];
+        i++;
+        d++;
+    }
+    if(j < dy)
+    {
+        v[d] = y[j];
+        j++;
+        d++;
+    }
+}
+
+void sol5()
+{
+    int x[100] = {12, 28, 39, 58, 79};
+    int dx = 5;
+    int y[100] = {10, 17, 48, 59, 80, 86, 89};
+    int dy = 7;
+    int v[1];
+    int d;
+    interclasare(x, y, dx, dy, v, d);
     afisare(v, d);
 }
 

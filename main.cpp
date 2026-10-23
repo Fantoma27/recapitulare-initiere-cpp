@@ -1,4 +1,4 @@
-#include "pozitie_secventa.h"
+#include "inserare.h"
 
 int main()
 {

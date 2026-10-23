@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/muraru/recapitulare-initiere-cpp/main'
+relocations:     []
+...
