@@ -89,28 +89,49 @@ void sol4()
 
 //Primești doi vectori. Scrie o funcție care construiește un vector cu primul element 
 //din a, primul din b, al doileadin a, al doilea din b, și tot așa. Ce rămâne se pune la fi nal.
+//              0   1   2   3   4   5   6
+//int x[100] = {12, 28, 39, 58, 79};
+//int y[100] = {10, 17, 48, 60, 80, 86, 89};
 
+//i = 0; j = 0; d = 0; semn = 0; dx = 5; dy = 7;
+//i < dx && j < dy    semn = 0  v[d] = x[i] i++  semn  else  v[d] = y[j]  j++  semn d++
+//0 < 5     0 < 7 da     da     v[0] = 12    1     1                                 1
+//1 < 5     0 < 7 da     nu                                  v[1] = 10     1     0   2
+//1 < 5     1 < 7 da     da     v[2] = 28    2     1                                 3
+//2 < 5     1 < 7 da     nu                                  v[3] = 17     2     0   4
+//2 < 5     2 < 7 da     da     v[4] = 39    3     1                                 5
+//3 < 5     2 < 7 da     nu                                  v[5] = 48     3     0   6
+//3 < 5     3 < 7 da     da     v[6] = 58    4     1                                 7
+//4 < 5     3 < 7 da     nu                                  v[7]=  60     4    1     8        
 void interclasare(int x[], int y[], int dx, int dy, int v[], int &d)
 {
     int i = 0;
     int j = 0;
     d = 0;
+    int semn=0;
     while(i < dx && j < dy)
     {
-        v[d] = x[i];
-        i++;
-        d++;
-        v[d] = y[j];
-        j++;
+        if(semn==0)
+        {
+            v[d] = x[i];
+            i++;
+            semn=1;
+        }
+        else
+        {
+            v[d] = y[j];
+            j++;
+            semn=0;
+        }
         d++;
     }
-    if(i < dx)
+    while(i < dx)
     {
         v[d] = x[i];
         i++;
         d++;
     }
-    if(j < dy)
+    while(j < dy)
     {
         v[d] = y[j];
         j++;
@@ -122,10 +143,10 @@ void sol5()
 {
     int x[100] = {12, 28, 39, 58, 79};
     int dx = 5;
-    int y[100] = {10, 17, 48, 59, 80, 86, 89};
+    int y[100] = {10, 17, 48, 60, 80, 86, 89};
     int dy = 7;
-    int v[1];
-    int d;
+    int v[100];
+    int d=0;    
     interclasare(x, y, dx, dy, v, d);
     afisare(v, d);
 }
