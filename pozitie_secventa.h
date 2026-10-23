@@ -17,7 +17,7 @@ void vectorMarcarePoz(int v[], int poz, int f[], int d)
 
 }
 
-//de facut data viitoare
+//de facut data viitoare de readus aminte
 
 void gasireSecventa(int v1[], int v2[], int  d1,  int d2 ,int y[], int dy)
 {
