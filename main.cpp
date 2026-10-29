@@ -1,4 +1,4 @@
-#include "frecventa_valori.h"
+#include "frecventa_cifre.h"
 
 int main()
 {
