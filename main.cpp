@@ -1,8 +1,8 @@
-#include "inserare.h"
+#include "frecventa_valori.h"
 
 int main()
 {
-    sol5();
+    sol3();
     return 0;
 }
 
